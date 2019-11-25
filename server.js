@@ -73,7 +73,7 @@ app.get("/articles", function(req, res) {
     });
 });
 
-// Get Article by id, then add the note
+// Get Article by id, then add the comment
 app.get("/articles/:id", function(req, res) {
   db.Article.findOne({ _id: req.params.id })
     .populate("comment")
@@ -91,7 +91,7 @@ app.post("/articles/:id", function(req, res) {
   db.Comment.create(req.body)
     .then(function(dbComment) {
       // assigning the comment to the article based on the ID
-      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbComment._id }, { new: true });
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
     })
     .then(function(dbArticle) {
       res.json(dbArticle);

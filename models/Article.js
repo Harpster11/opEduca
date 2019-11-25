@@ -1,8 +1,8 @@
 var mongoose = require("mongoose");
-var mongooseSchema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 // Build user schema
-var articleSchema = new mongooseSchema({
+var ArticleSchema = new Schema({
   // require a title as a string
   title: {
     type: String,
@@ -15,13 +15,13 @@ var articleSchema = new mongooseSchema({
   },
   // create an object to hold a comment
   comment: {
-    type: articleSchema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Comment"
   }
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Article = mongoose.model("Article", articleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
 // Export the Article model
 module.exports = Article;
