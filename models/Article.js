@@ -15,7 +15,7 @@ var articleSchema = new mongooseSchema({
   },
   // create an object to hold a comment
   comment: {
-    type: Schema.Types.ObjectId,
+    type: articleSchema.Types.ObjectId,
     ref: "Comment"
   }
 });
