@@ -4,14 +4,16 @@ var expressHandlebars = require("express-handlebars");
 var mongoose = require("mongoose");
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3030;
 
 
 var app = express();
 
 var router = express.Router();
 
-app.use(express.static(__dirname + "/public"));
+require("./config/routes")(router);
+
+app.use(express.static(__dirname + "public"));
 
 app.engine("handlebars", expressHandlebars({
     defaultLayout: "main"
