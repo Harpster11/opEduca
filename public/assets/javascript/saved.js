@@ -47,8 +47,8 @@ $(document).ready(function() {
         $("<a class='article-link' target='_blank' rel='noopener noreferrer'>")
           .attr("href", article.url)
           .text(article.headline),
-        $("<a class='btn btn-danger delete'>Delete From Saved</a>"),
-        $("<a class='btn btn-info comments'>Article Comments</a>")
+        $("<a class='btn btn-warning delete'>Delete Article</a>"),
+        $("<a class='btn btn-primary comments'>View Comments</a>")
       )
     );
 
@@ -56,8 +56,9 @@ $(document).ready(function() {
 
     card.append(cardHeader, cardBody);
 
-    //attach the article's id to the jQuery element
+    //attach the article's id and headline to the jQuery element
     card.data("_id", article._id);
+    card.data("_headline", article.headline);
     // return the constructed card jQuery element
     return card;
   }
@@ -136,8 +137,9 @@ $(document).ready(function() {
       .data();
     // Grab comments by id
     $.get("/api/comments/" + currentArticle._id).then(function(data) {
+      console.log("Comment Article:", currentArticle)
       var modalText = $("<div class='container-fluid text-center'>").append(
-        $("<h4>").text("Comments For: " + currentArticle.headline),
+        $("<h4>").text("Comments For: " + currentArticle._id),
         $("<hr>"),
         $("<ul class='list-group comment-container'>"),
         $("<textarea placeholder='New Comment' rows='4' cols='60'>"),
