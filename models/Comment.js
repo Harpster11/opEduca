@@ -1,17 +1,22 @@
-var mongoose = require("mongoose");
 
+var mongoose = require("mongoose");
+// Create a comment schema using mongoose
 var Schema = mongoose.Schema;
 
-var cmtSchema = new Schema({
-    _headlineId: {
-        type: Schema.Types.ObjectId,
-        ref: "Headline"
-    },
-   
-    date: String,
-    comment: String
+var commentSchema = new Schema({
+  // Associated headline with comments
+  _headlineId: {
+    type: Schema.Types.ObjectId,
+    ref: "Headline"
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  CommentText: String
 });
 
-var Headline = mongoose.model("Comment", headlineSchema);
+var Comment = mongoose.model("Comment", commentSchema);
 
-module.exports = Headline;
+// Export the model
+module.exports = Comment;

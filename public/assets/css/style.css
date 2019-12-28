@@ -5,11 +5,11 @@ html {
 
 body {
   margin-bottom: 80px;
-  background-image: url("../images/paper.png");
+  ;
 }
 
 .card a:not([href]):not([tabindex]).scrape-new {
-  color: #2196F3;
+  color: #212121;
 }
 
 .footer {
@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 80px;
   color: white;
-  background-color: #2196f3;
+  background-color: #212121;
 }
 
 .navbar {
@@ -30,7 +30,7 @@ body {
   width: 100%;
   height: 500px;
   padding: 0;
-  font-family: "Headland One", serif;
+  font-family: "Cormorant SC";
   box-shadow: 10px 5px 20px 2px lightslategrey;
 }
 
@@ -47,7 +47,13 @@ body {
 
 .jumbotron .background-image {
   height: 100%;
+  background-image: url("../images/made_in_oregon_white_stag_sign_portland.jpg.jpg");
+  background-size: cover;
+}
+
+.jumbotron .background-image-saved {
   background-image: url("../images/newspaper.jpg");
+  height: 100%;
   background-size: cover;
 }
 
@@ -83,7 +89,7 @@ body {
 }
 
 .card .card-header {
-  background-color: #2196f3;
+  background-color: #212121;
   position: relative;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -123,7 +129,7 @@ body {
   padding-left: 10px;
   margin: 0;
   font-weight: 800;
-  background: #0c7cd5;
+  background: #212121;
 }
 
 .navbar-nav > li > a.scrape-new,
@@ -137,11 +143,11 @@ body {
 
 .navbar-nav > li > a.scrape-new:hover,
 .navbar-nav > li > a.clear:hover {
-  background: #4caf50;
+  background: goldenrod;
 }
 
 .navbar-nav > li > a.scrape-new:active {
-  background: #e51c23;
+  background: silver;
 }
 
 .scrape-new {
@@ -163,7 +169,7 @@ textarea {
   margin: 5px;
 }
 
-.note.list-group-item .btn {
+.comment.list-group-item .btn {
   position: relative;
   bottom: 10px;
 }

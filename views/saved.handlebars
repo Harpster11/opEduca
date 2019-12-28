@@ -1,31 +1,73 @@
-<nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">OpEduca</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li class="active"><a href="/saved">Your Conversations</a></li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">OpEduca</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/saved">Saved Articles
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
 </nav>
 <div class="jumbotron text-center">
-    <div class="overlay"></div>
-    <div class="background-image"></div>
-    <div class="caption">
-        <h1>Saved Conversations</h1>
-        <p>Conversations about articles you've saved from Cleveland.com</p>
-    </div>
+  <div class="overlay">
+  </div>
+  <div class="background-image-saved">
+  </div>
+  <div class="caption">
+    <h1>Comments</h1>
+    <p>Ongoing conversations about Oregonian News</p>
+  </div>
 </div>
-<div class="container-fluid article-container"></div>
+<div class="container-fluid article-container">
+  {{#each articles}}
+    <div data-_id={{this._id}} class="card">
+      <div class="card-header">
+        <h3>
+          <a class="article-link" target="_blank" rel="noopener noreferrer" href="{{this.url}}">{{this.headline}}</a>
+          <a class="btn btn-danger delete">Delete Comment</a>
+          <a class="btn btn-info comments">Save Comment</a>
+        </h3>
+      </div>
+      <div class="card-body">{{this.summary}}</div>
+    </div>
+  {{/each}}
+  {{#unless articles.length}}
+    <div class="alert alert-warning text-center">
+      <h4>There are no saved currently saved conversations.</h4>
+    </div>
+    <div class="card">
+      <div class="card-header text-center">
+        <h3>Would You Like to Browse New Articles?</h3>
+      </div>
+      <div class="card-body text-center">
+        <h4>
+          <a href="/">Browse Articles</a>
+        </h4>
+      </div>
+    </div>
+  {{/unless}}
+</div>
 
 <footer class="footer">
-    <div class="container">
-        <p>OpEduca | Cleveland.com</p>
-    </div>
+  <div class="container">
+    <p> OpEduca | The Oregonian Edition </p>
+  </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../public/assets/javascript/saved.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="/assets/javascript/saved.js"></script>
