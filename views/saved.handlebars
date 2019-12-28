@@ -37,15 +37,15 @@
       <div class="card-header">
         <h3>
           <a class="article-link" target="_blank" rel="noopener noreferrer" href="{{this.url}}">{{this.headline}}</a>
-          <a class="btn btn-danger delete">Delete Comment</a>
-          <a class="btn btn-info comments">Save Comment</a>
+          <a class="btn btn-warning delete">Delete Article</a>
+          <a class="btn btn-primary comments">View Comments</a>
         </h3>
       </div>
       <div class="card-body">{{this.summary}}</div>
     </div>
   {{/each}}
   {{#unless articles.length}}
-    <div class="alert alert-warning text-center">
+    <div class="alert alert-dark text-center">
       <h4>There are no saved currently saved conversations.</h4>
     </div>
     <div class="card">

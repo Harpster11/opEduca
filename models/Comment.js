@@ -13,7 +13,7 @@ var commentSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  CommentText: String
+  commentText: String
 });
 
 var Comment = mongoose.model("Comment", commentSchema);

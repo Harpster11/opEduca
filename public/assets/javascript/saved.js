@@ -137,7 +137,7 @@ $(document).ready(function() {
     // Grab comments by id
     $.get("/api/comments/" + currentArticle._id).then(function(data) {
       var modalText = $("<div class='container-fluid text-center'>").append(
-        $("<h4>").text("Comments For Article: " + currentArticle._id),
+        $("<h4>").text("Comments For: " + currentArticle.headline),
         $("<hr>"),
         $("<ul class='list-group comment-container'>"),
         $("<textarea placeholder='New Comment' rows='4' cols='60'>"),
@@ -166,12 +166,14 @@ $(document).ready(function() {
     var newComment = $(".bootbox-body textarea")
       .val()
       .trim();
+
+      console.log("New Comment:",newComment)
     // If new comment data, format
     // and post it to comments route with commentData
     if (newComment) {
       commentData = { _headlineId: $(this).data("article")._id, commentText: newComment };
       $.post("/api/comments", commentData).then(function() {
-        // When complete, close the modal
+        // When complete, close the bootbox
         bootbox.hideAll();
       });
     }
